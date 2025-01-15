@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PromoBot - Login e Cadastro</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="robocortado.jpg" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <div
+      class="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-400 to-blue-500"
+    >
+      <div
+        class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md animate__animated animate__fadeIn"
+      >
+        <h2 class="text-3xl font-bold text-center text-green-600 mb-6">
+          <a href="index.html">PromoBot</a>
+        </h2>
+        <ul class="flex justify-center mb-6">
+          <li class="mr-4">
+            <a
+              href="#login"
+              class="text-gray-600 hover:text-green-600"
+              id="login-tab"
+              >Login</a
+            >
+          </li>
+          <li>
+            <a
+              href="#signup"
+              class="text-gray-600 hover:text-green-600"
+              id="signup-tab"
+              >Cadastro</a
+            >
+          </li>
+        </ul>
+        <div id="login-form" class="animate__animated animate__fadeIn">
+          <form>
+            <div class="mb-4">
+              <label for="email" class="block text-sm text-gray-700"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                placeholder="Digite seu email"
+                class="w-full px-4 py-3 text-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-300"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label for="password" class="block text-sm text-gray-700"
+                >Senha</label
+              >
+              <input
+                type="password"
+                id="password"
+                placeholder="Digite sua senha"
+                class="w-full px-4 py-3 text-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-300"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition duration-300 shadow-lg"
+            >
+              Entrar
+            </button>
+          </form>
+        </div>
+        <div id="signup-form" class="hidden animate__animated animate__fadeIn">
+          <form>
+            <div class="mb-4">
+              <label for="signup-email" class="block text-sm text-gray-700"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="signup-email"
+                placeholder="Digite seu email"
+                class="w-full px-4 py-3 text-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-300"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label for="signup-password" class="block text-sm text-gray-700"
+                >Senha</label
+              >
+              <input
+                type="password"
+                id="signup-password"
+                placeholder="Digite sua senha"
+                class="w-full px-4 py-3 text-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-300"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label for="confirm-password" class="block text-sm text-gray-700"
+                >Confirme a Senha</label
+              >
+              <input
+                type="password"
+                id="confirm-password"
+                placeholder="Confirme sua senha"
+                class="w-full px-4 py-3 text-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-300"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition duration-300 shadow-lg"
+            >
+              Cadastrar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const loginTab = document.getElementById("login-tab");
+      const signupTab = document.getElementById("signup-tab");
+      const loginForm = document.getElementById("login-form");
+      const signupForm = document.getElementById("signup-form");
+
+      loginTab.addEventListener("click", () => {
+        loginForm.classList.remove("hidden");
+        signupForm.classList.add("hidden");
+        loginTab.classList.add("text-green-600");
+        signupTab.classList.remove("text-green-600");
+      });
+
+      signupTab.addEventListener("click", () => {
+        signupForm.classList.remove("hidden");
+        loginForm.classList.add("hidden");
+        signupTab.classList.add("text-green-600");
+        loginTab.classList.remove("text-green-600");
+      });
+    </script>
+  </body>
+</html>

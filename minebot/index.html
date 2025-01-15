@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link
+      rel="icon"
+      type="img/png"
+      href="../static/assets/logo/robocortado.jpg"
+    />
+    <title>Promo Bot</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="hero">
+        <h1>Promo Bot</h1>
+        <p>
+          Automatize promoções e economize tempo com nosso bot de mensagens.
+        </p>
+      </div>
+      <div class="form-container">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %}
+        <ul class="flashes">
+          {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
+        <form action="{{ url_for('start_scrape') }}" method="POST">
+          <input
+            type="text"
+            name="search_term"
+            id="search_term"
+            placeholder="Termo de busca"
+          />
+          <button type="submit">Iniciar Scraping e Envio</button>
+        </form>
+        <form action="{{ url_for('clear_data') }}" method="POST">
+          <button type="submit">Limpar Dados</button>
+        </form>
+        <form action="{{ url_for('download_latest') }}" method="GET">
+          <button type="submit">Baixar Última Planilha</button>
+        </form>
+      </div>
+    </div>
+    <footer>© 2025 Promo Bot. Todos os direitos reservados.</footer>
+  </body>
+</html>
